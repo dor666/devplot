@@ -4,13 +4,14 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = devplot-app
 TEMPLATE = app
 
+CONFIG += c++11
 
 SRC_DIR = ../../src
 SOURCES += $$SRC_DIR/main.cpp

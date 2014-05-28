@@ -6,9 +6,11 @@
 
 TARGET = devplot-lib
 TEMPLATE = lib
-CONFIG += staticlib
+CONFIG += staticlib c++11
 
-QT += widgets
+QT += \
+        widgets \
+        serialport \
 
 unix {
     target.path = /usr/lib
@@ -19,7 +21,10 @@ VPATH += ../../src
 
 SOURCES += \
         mainwindow.cpp \
+    ../../src/serial_device.cpp
 
 HEADERS  += mainwindow.h \
+    ../../src/serial_device.h
 
 FORMS    += mainwindow.ui \
+    ../../src/serial_device.ui
