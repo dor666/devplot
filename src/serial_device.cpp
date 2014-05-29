@@ -12,6 +12,10 @@ SerialDevice::SerialDevice(SerialPortFactoryInterface* _portFactory, QWidget *pa
     ui->setupUi(this);
 
     RefreshPortList();
+
+
+    //ui->dataBitsComboBox->ins
+
 }
 
 void SerialDevice::RefreshPortList()

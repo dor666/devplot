@@ -29,3 +29,9 @@ int main(int argc, char** argv) {
     delete app;
     return ret;
 }
+
+/*
+void PrintTo(const QChar& chr, ::std::ostream* os)
+{
+    *os << "QChar(" << chr.toAscii() << ")";
+}*/
