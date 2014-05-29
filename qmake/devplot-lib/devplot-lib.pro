@@ -24,7 +24,8 @@ SOURCES += \
     ../../src/serial_device.cpp
 
 HEADERS  += mainwindow.h \
-    ../../src/serial_device.h
+    ../../src/serial_device.h \
+    ../../src/classes.h
 
 FORMS    += mainwindow.ui \
     ../../src/serial_device.ui

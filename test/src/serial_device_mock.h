@@ -1,3 +1,5 @@
+#pragma once
+
 #include "serial_device.h"
 #include "gmock/gmock.h"
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QMainWindow>
+#include "classes.h"
 
 namespace Ui {
 class MainWindow;
@@ -14,11 +15,14 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(SerialPortFactoryInterface* _serialPortFactory,
+                        QWidget *parent = 0);
     ~MainWindow();
 
 private:
     Ui::MainWindow *ui;
+
+    SerialPortFactoryInterface* serialPortFactory;
 };
 
 } // namespace dplot

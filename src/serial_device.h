@@ -29,7 +29,7 @@ class SerialDevice : public QDockWidget
 
 public:
 
-    SerialDevice(SerialPortFactoryInterface* _portFactory, QWidget *parent);
+    SerialDevice(SerialPortFactoryInterface* _portFactory, QWidget *parent = 0);
 
     ~SerialDevice();
 

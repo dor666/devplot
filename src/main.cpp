@@ -8,7 +8,10 @@ using namespace dplot;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+
+    SerialPortFactory portFactory;
+
+    MainWindow w(&portFactory);
     w.show();
 
     return a.exec();

@@ -4,6 +4,8 @@
 
 #include <QApplication>
 
+#include "serial_device_mock.h"
+
 namespace dplot {
 
 namespace test
@@ -50,6 +52,7 @@ protected:
     // is empty.
 
     MainWindow* mainWindow;
+    SerialPortFactory_Mock* portFactory;
 
     GuiTest() {
         // You can do set-up work for each test here.
@@ -62,20 +65,11 @@ protected:
     // If the constructor and destructor are not enough for setting up
     // and cleaning up each test, you can define the following methods:
 
-    virtual void SetUp() {
-        // Code here will be called immediately after the constructor (right
-        // before each test).
-        mainWindow = new MainWindow();
-    }
+    virtual void SetUp();
 
-    virtual void TearDown() {
-        // Code here will be called immediately after each test (right
-        // before the destructor).
-
-        app->processEvents();
-        delete mainWindow;
-        app->processEvents();
-    }
+    // Code here will be called immediately after each test (right
+    // before the destructor).
+    virtual void TearDown();
 
     // Objects declared here can be used by all tests in the test case for Foo.
 };

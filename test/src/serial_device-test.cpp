@@ -12,10 +12,6 @@ void PrintTo(const QString& str, ::std::ostream* os)
     *os << "QString(" << str.toStdString() << ")";
 }
 
-TEST_F(GuiTest, App_launch) {
-
-}
-
 TEST_F(WindowlessWidgetTest, device_creation_will_enumerate_ports)
 {
     SerialPortFactory_Mock factoryMock;
