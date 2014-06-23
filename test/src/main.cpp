@@ -30,8 +30,12 @@ int main(int argc, char** argv) {
     return ret;
 }
 
-/*
+void PrintTo(const QString& str, ::std::ostream* os)
+{
+    *os << "QString(" << str.toStdString() << ")";
+}
+
 void PrintTo(const QChar& chr, ::std::ostream* os)
 {
-    *os << "QChar(" << chr.toAscii() << ")";
-}*/
+    *os << "QChar(" << chr.toLatin1() << ")";
+}

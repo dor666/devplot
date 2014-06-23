@@ -1,6 +1,11 @@
 #pragma once
 
+namespace Ui {
+class SerialDevice;
+}
+
 namespace dplot {
-    class SerialDevice;
+    class SerialDeviceWidget;
+    class SerialPortInterface;
     class SerialPortFactoryInterface;
 }

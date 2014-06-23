@@ -21,11 +21,13 @@ VPATH += ../../src
 
 SOURCES += \
         mainwindow.cpp \
-    ../../src/serial_device.cpp
+    ../../src/serial_device.cpp \
+    ../../src/serial_port.cpp
 
 HEADERS  += mainwindow.h \
     ../../src/serial_device.h \
-    ../../src/classes.h
+    ../../src/classes.h \
+    ../../src/serial_port.h
 
 FORMS    += mainwindow.ui \
     ../../src/serial_device.ui

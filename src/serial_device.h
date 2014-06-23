@@ -3,35 +3,22 @@
 #include <QDockWidget>
 #include <QSerialPortInfo>
 
-namespace Ui {
-class SerialDevice;
-}
+#include "serial_port.h"
+#include "classes.h"
 
 namespace dplot
 {
 
-class SerialPortFactoryInterface
-{
-public:
-    virtual QStringList EnumeratePorts() = 0;
-};
-
-class SerialPortFactory : public SerialPortFactoryInterface
-{
-public:
-    QStringList EnumeratePorts() override;
-};
-
-class SerialDevice : public QDockWidget
+class SerialDeviceWidget : public QDockWidget
 {
 
     Q_OBJECT
 
 public:
 
-    SerialDevice(SerialPortFactoryInterface* _portFactory, QWidget *parent = 0);
+    SerialDeviceWidget(SerialPortFactoryInterface* _portFactory, QWidget *parent = 0);
 
-    ~SerialDevice();
+    ~SerialDeviceWidget();
 
 private:
 
@@ -39,7 +26,28 @@ private:
 
     SerialPortFactoryInterface* portFactory = nullptr;
 
+    SerialPortInterface* serialPort = nullptr;
+
     void RefreshPortList();
+
+    SerialPortConnectionParams GetParamsFromUi();
+
+public slots:
+
+    void ReadyReadSlot()
+    {
+        ///@todo implement
+    }
+
+    void Reconnect()
+    {
+        delete serialPort;
+        serialPort = portFactory->CreatePort();
+        serialPort->Reconnect(GetParamsFromUi());
+
+        bool success = connect(serialPort, SIGNAL(readyRead()), this, SLOT(ReadyReadSlot()));
+        Q_ASSERT(success);
+    }
 
 public:
 

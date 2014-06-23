@@ -14,7 +14,7 @@ MainWindow::MainWindow(SerialPortFactoryInterface* _serialPortFactory,
     serialPortFactory(_serialPortFactory)
 {
     ui->setupUi(this);
-    addDockWidget(Qt::LeftDockWidgetArea, new SerialDevice(serialPortFactory));
+    addDockWidget(Qt::LeftDockWidgetArea, new SerialDeviceWidget(serialPortFactory));
 }
 
 MainWindow::~MainWindow()
