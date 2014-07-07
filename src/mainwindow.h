@@ -19,6 +19,12 @@ public:
                         QWidget *parent = 0);
     ~MainWindow();
 
+public slots:
+
+    void AddDevice();
+
+    void displayError(QString what);
+
 private:
     Ui::MainWindow *ui;
 

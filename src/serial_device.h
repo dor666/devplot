@@ -43,10 +43,13 @@ public slots:
     {
         delete serialPort;
         serialPort = portFactory->CreatePort();
-        serialPort->Reconnect(GetParamsFromUi());
 
-        bool success = connect(serialPort, SIGNAL(readyRead()), this, SLOT(ReadyReadSlot()));
+        bool success =
+            connect(serialPort, SIGNAL(readyRead()), this, SLOT(ReadyReadSlot())) &&
+            connect(serialPort, SIGNAL(portError(QString)), this, SIGNAL(errorOccurred(QString)));
         Q_ASSERT(success);
+
+        serialPort->Reconnect(GetParamsFromUi());
     }
 
 public:
@@ -55,6 +58,10 @@ public:
     {
         return ui;
     }
+
+signals:
+
+    void errorOccurred(QString error);
 };
 
 } //namespace dplot

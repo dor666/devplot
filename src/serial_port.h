@@ -41,6 +41,8 @@ signals:
 
     void readyRead();
 
+    void portError(QString reason);
+
 public slots:
 };
 
@@ -72,7 +74,8 @@ public:
         }
         else
         {
-            ///@todo implement
+            emit portError(port.errorString());
+            port.close();
         }
     }
 
